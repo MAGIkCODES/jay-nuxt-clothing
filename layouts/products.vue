@@ -16,7 +16,7 @@
             <ul class="flex space-x-4">
                 <li><NuxtLink to="/">Home</NuxtLink></li>
                 <li><NuxtLink to="/about">About</NuxtLink></li>
-                <li><NuxtLink to="/products">Products</NuxtLink></li>
+                <li><NuxtLink to="/products" class="btn">Products</NuxtLink></li>
             </ul>
         </footer>
     </div>
@@ -27,7 +27,5 @@
 </script>
 
 <style scoped>
-    .router-link-exact-active {
-        color: #42b983;
-    }
+    
 </style>

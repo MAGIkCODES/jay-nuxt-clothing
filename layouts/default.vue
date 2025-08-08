@@ -20,11 +20,13 @@
 </template>
 
 <script setup>
+    
 
 </script>
 
 <style scoped>
     .router-link-exact-active {
         color: #42b983;
+        font-weight: bold;
     }
 </style>
