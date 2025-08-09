@@ -12,7 +12,7 @@
             <NuxtPage />
         </div>
 
-        <footer class="container flex justify-center mx-auto bg-gray-100 p-4 mt-8 border-t-2">
+        <footer class="container flex  mx-auto bg-gray-100 p-4 mt-8 border-t-2">
             <ul class="flex space-x-4">
                 <li><NuxtLink to="/">Home</NuxtLink></li>
                 <li><NuxtLink to="/about">About</NuxtLink></li>

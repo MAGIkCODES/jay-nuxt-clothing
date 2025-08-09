@@ -33,23 +33,18 @@
       v-else
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5"
     >
-      <div
+      <ProductCard
         v-for="product in products"
         :key="product.id"
-        class="p-4 bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-300"
-      >
-        <nuxt-link
-          :to="`/products/${product.id}`"
-          class="block text-gray-800 hover:text-blue-600 font-medium line-clamp-2"
-        >
-          {{ product.title }}
-        </nuxt-link>
-      </div>
+        :product="product"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
+import { ProductCard } from '#components';
+
 definePageMeta({
   layout: "products",
 });
@@ -60,7 +55,7 @@ const {
   error,
 } = await useFetch("https://fakestoreapi.com/products", {
   key: "products",
-  lazy: true, // Lazy loading to avoid fetching on initial load
+  lazy: true, 
 });
 
 // Console log the products when they are fetched
