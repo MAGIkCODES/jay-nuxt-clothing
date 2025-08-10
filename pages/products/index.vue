@@ -39,11 +39,15 @@
         :product="product"
       />
     </div>
+    
+    <!-- No products found -->
+    <div v-if="!pending && products.length === 0" class="text-center py-10">
+      <h2 class="text-xl font-semibold">No products found</h2>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ProductCard } from '#components';
 
 definePageMeta({
   layout: "products",
@@ -52,7 +56,7 @@ definePageMeta({
 const {
   data: products,
   pending,
-  error,
+  error
 } = await useFetch("https://fakestoreapi.com/products", {
   key: "products",
   lazy: true, 
@@ -63,13 +67,14 @@ const {
 //   console.log("Fetched products:", products.value);
 // }
 
-if (error.value) {
-  throw createError({ 
-    statusCode: 404, 
-    statusMessage: "Products not found" 
-  });
-}
-
+watchEffect(() => {
+  if (error.value) {
+    throw createError({ 
+      statusCode: 404, 
+      statusMessage: "Products not found" 
+    });
+  }
+})
 
 </script>
 
