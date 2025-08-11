@@ -1,5 +1,6 @@
 <template>
   <div class="mx-auto p-6">
+
     <!-- Loading state -->
     <div
       v-if="pending"
@@ -48,13 +49,10 @@ definePageMeta({
 
 const route = useRoute();
 
-const { 
-  data: product, 
-  pending
-} = await useFetch(
+const { data: product, pending } = await useFetch(
   `https://fakestoreapi.com/products/${route.params.id}`,
-  { 
-    key: `product-${route.params.id}` 
+  {
+    key: `product-${route.params.id}`,
   }
 );
 
@@ -65,6 +63,15 @@ if (!product.value || Object.keys(product.value).length === 0) {
   });
 }
 
+useHead({
+  title: `Jay Clothing - ${product.value.title}`,
+  meta: [
+    {
+      name: "description",
+      content: product.value.description,
+    },
+  ],
+});
 </script>
 
 <style scoped></style>

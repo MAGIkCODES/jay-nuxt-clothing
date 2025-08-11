@@ -76,6 +76,18 @@ watchEffect(() => {
   }
 })
 
+useHead({
+    title: 'Products',
+    meta: [
+      { name: 'description', content: 'Browse our collection of products' },
+
+      // Open Graph
+      // { property: 'og:title', content: 'Products' },
+      // { property: 'og:description', content: 'Browse our collection of products' },
+      // { property: 'og:image', content: 'https://example.com/image.jpg' }, 
+      // { property: 'og:url', content: 'https://example.com/products' }, 
+    ]
+});
 </script>
 
 <style scoped>
