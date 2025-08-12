@@ -11,7 +11,7 @@
 </template>
 
 <script setup> 
-    const { data } = await useFetch('/api/jay')
+    const { data } = await useFetch('/api/currency/USD')
     
     // Example of using useFetch with a POST request
     // const { data } = await useFetch('/api/jay?name=jay', {
